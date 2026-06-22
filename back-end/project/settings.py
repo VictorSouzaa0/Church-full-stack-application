@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'app',
-    'drf_yasg',
-    'rest_framework_simplejwt.token.blacklist'
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -80,23 +79,23 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'church',
-        'USER': 'root',
-        'PASSWORD': '14702084',
-        'HOST': 'localhost',   # Or the IP address where MySQL is hosted
-        'PORT': '3306',        # MySQL port (default is 3306)
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'church',
+#         'USER': 'root',
+#         'PASSWORD': '14702084',
+#         'HOST': 'localhost',   # Or the IP address where MySQL is hosted
+#         'PORT': '3306',        # MySQL port (default is 3306)
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
