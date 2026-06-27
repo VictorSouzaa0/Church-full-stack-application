@@ -1,0 +1,30 @@
+#Using the official Python run time image
+FROM python:3.14
+
+#Create the app directory
+RUN mkdir /app
+
+#Set the working directory inside the container
+WORKDIR /app
+
+
+# Upgrade pip
+
+RUN pip install  --upgrade pip
+
+#Copy the django project and install dependencies
+COPY requirements.txt /app/
+
+# Run this command and install all dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+#Copy the django project to the container
+COPY . /app/
+
+#Expose django port
+EXPOSE 8000
+
+# Run django development server
+
+CMD ["python","manage.py", "runserver", "0.0.0.0:8000"]
