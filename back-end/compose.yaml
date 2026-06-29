@@ -1,0 +1,31 @@
+services:
+  django:
+    command: gunicorn project.wsgi:application --bind 0.0.0.0:8000
+    expose: 
+      - "8000"
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    configs:
+        - source: inline_nginx
+          target: /etc/nginx/confi.d/default.conf
+    depends_on:
+      - django
+
+configs:
+  
+  inline_nginx:
+      content: |
+        server {
+          listen 80;
+          server_name django;
+
+          location / 
+          {
+            proxy_pass http://django:8000;
+            proxy_set_header Host $host;
+          }
+        }
+  
