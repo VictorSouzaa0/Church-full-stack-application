@@ -1,0 +1,17 @@
+name: CI Pipeline testing
+
+on:
+  push: 
+    branches: [main]
+  pull_request:
+    branches:
+    
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses:
+# Coming soon...
